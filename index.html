@@ -7,7 +7,7 @@
   <style>
     body {
       margin: 0;
-      font-family: 'Arial', sans-serif;
+      font-family: Arial, sans-serif;
       background: linear-gradient(135deg, #ffe6f0, #fff5e6);
       color: #333;
       text-align: center;
@@ -40,32 +40,51 @@
 
     .section {
       margin-top: 30px;
-      background: rgba(255,255,255,0.75);
-      padding: 20px;
+      background: rgba(255,255,255,0.8);
+      padding: 25px;
       border-radius: 20px;
-      display: inline-block;
-      max-width: 800px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
       text-align: left;
     }
 
     .section h3 {
       text-align: center;
       color: #6a1b9a;
-      margin-bottom: 15px;
+      margin-bottom: 20px;
     }
 
     .agenda-item {
-      margin-bottom: 15px;
-      line-height: 1.5;
+      margin-bottom: 25px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .agenda-item img {
+      width: 100%;
+      max-height: 250px;
+      object-fit: cover;
+      border-radius: 15px;
+      margin-bottom: 10px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     }
 
     .time {
       font-weight: bold;
       color: #c2185b;
+      font-size: 18px;
     }
 
-    .gallery {
-      margin-top: 30px;
+    .title {
+      font-weight: bold;
+      font-size: 18px;
+      margin-top: 5px;
+    }
+
+    .desc {
+      margin-top: 5px;
+      line-height: 1.5;
     }
 
     .gallery img {
@@ -75,62 +94,92 @@
       object-fit: cover;
       border-radius: 20px;
       box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-      transition: opacity 1s ease-in-out;
-    }
-
-    .info {
-      margin-top: 20px;
-      font-size: 20px;
-      line-height: 1.6;
-    }
-
-    .label {
-      font-weight: bold;
-      color: #6a1b9a;
     }
   </style>
 </head>
 <body>
 
 <div class="container">
-  <h1>Հարսանիք</h1>
+  <h1>Հարսանիք 💍</h1>
   <h2>Սիրով հրավիրում ենք մեր հարսանիքին ❤️</h2>
 
   <div class="countdown" id="countdown"></div>
 
-  <div class="info">
-    <p><span class="label">Ամսաթիվ:</span> 2026-09-10</p>
-    <p><span class="label">Ժամ:</span> 16:00</p>
-    <p><span class="label">Հասցե:</span> (ավելացնել հասցեն)</p>
-  </div>
-
   <div class="section">
     <h3>💍 Հարսանիքի օրակարգ</h3>
 
-    <div class="agenda-item"><span class="time">14:00</span> – Հարսի պատրաստություն<br/>Հարսի հագուստ, դիմահարդարում, նկարահանումներ։</div>
+    <div class="agenda-item">
+      <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf" />
+      <div class="time">14:00</div>
+      <div class="title">Հարսի պատրաստություն</div>
+      <div class="desc">Հարսի հագուստ, դիմահարդարում, նկարահանումներ։</div>
+    </div>
 
-    <div class="agenda-item"><span class="time">15:00</span> – Փեսայի պատրաստություն<br/>Փեսայի և ընկերների պատրաստություն, նախապատրաստական նկարներ։</div>
+    <div class="agenda-item">
+      <img src="https://images.unsplash.com/photo-1529634891907-1fda9a43aab3" />
+      <div class="time">15:00</div>
+      <div class="title">Փեսայի պատրաստություն</div>
+      <div class="desc">Փեսայի և ընկերների պատրաստություն, նախապատրաստական նկարներ։</div>
+    </div>
 
-    <div class="agenda-item"><span class="time">16:00</span> – Հարսի դուրսբերում (տունից)<br/>Ընտանեկան գեղեցիկ արարողություն, օրհնություն։</div>
+    <div class="agenda-item">
+      <img src="https://images.unsplash.com/photo-1507504031003-b417219a0fde" />
+      <div class="time">16:00</div>
+      <div class="title">Հարսի դուրսբերում (տունից)</div>
+      <div class="desc">Ընտանեկան գեղեցիկ արարողություն, օրհնություն։</div>
+    </div>
 
-    <div class="agenda-item"><span class="time">17:00</span> – Պսակադրություն / եկեղեցի<br/>Սուրբ արարողություն և ամուսնության գրանցում։</div>
+    <div class="agenda-item">
+      <img src="https://images.unsplash.com/photo-1523438097201-512ae7d59c3b" />
+      <div class="time">17:00</div>
+      <div class="title">Պսակադրություն / եկեղեցի</div>
+      <div class="desc">Սուրբ արարողություն և ամուսնության գրանցում։</div>
+    </div>
 
-    <div class="agenda-item"><span class="time">18:30</span> – Ֆոտոսեսիա<br/>Ռոմանտիկ նկարահանումներ զույգի և ընտանիքի հետ։</div>
+    <div class="agenda-item">
+      <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486" />
+      <div class="time">18:30</div>
+      <div class="title">Ֆոտոսեսիա</div>
+      <div class="desc">Ռոմանտիկ նկարահանումներ զույգի և ընտանիքի հետ։</div>
+    </div>
 
-    <div class="agenda-item"><span class="time">20:00</span> – Հարսանյաց խնջույք (բանկետ)<br/>Երաժշտություն, պարեր, հյուրերի դիմավորում։</div>
+    <div class="agenda-item">
+      <img src="https://images.unsplash.com/photo-1529516548873-9ce57c8f155d" />
+      <div class="time">20:00</div>
+      <div class="title">Հարսանյաց խնջույք (բանկետ)</div>
+      <div class="desc">Երաժշտություն, պարեր, հյուրերի դիմավորում։</div>
+    </div>
 
-    <div class="agenda-item"><span class="time">21:00</span> – Առաջին պար 💃🕺<br/>Փեսա և հարսի հատուկ պար։</div>
+    <div class="agenda-item">
+      <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc" />
+      <div class="time">21:00</div>
+      <div class="title">Առաջին պար 💃🕺</div>
+      <div class="desc">Փեսա և հարսի հատուկ պար։</div>
+    </div>
 
-    <div class="agenda-item"><span class="time">22:00</span> – Տորթի կտրում 🎂<br/>Հարսանյաց տորթի արարողություն։</div>
+    <div class="agenda-item">
+      <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf" />
+      <div class="time">22:00</div>
+      <div class="title">Տորթի կտրում 🎂</div>
+      <div class="desc">Հարսանյաց տորթի արարողություն։</div>
+    </div>
 
-    <div class="agenda-item"><span class="time">23:00</span> – Շնորհակալական խոսքեր<br/>Զույգի շնորհակալությունը հյուրերին։</div>
+    <div class="agenda-item">
+      <img src="https://images.unsplash.com/photo-1526045612212-70caf35c14df" />
+      <div class="time">23:00</div>
+      <div class="title">Շնորհակալական խոսքեր</div>
+      <div class="desc">Զույգի շնորհակալությունը հյուրերին։</div>
+    </div>
 
-    <div class="agenda-item"><span class="time">00:00</span> – Եզրափակիչ պարեր և ուրախություն 🎉</div>
+    <div class="agenda-item">
+      <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed" />
+      <div class="time">00:00</div>
+      <div class="title">Եզրափակիչ պարեր և ուրախություն 🎉</div>
+      <div class="desc">Երեկոյի ավարտը լի ուրախությամբ։</div>
+    </div>
+
   </div>
 
-  <div class="gallery">
-    <img id="slide" src="https://images.unsplash.com/photo-1529634891907-1fda9a43aab3" alt="wedding" />
-  </div>
 </div>
 
 <script>
@@ -152,27 +201,7 @@
 
     countdownEl.innerHTML = `Մնացել է՝ ${days} օր, ${hours} ժամ, ${minutes} րոպե`;
   }, 1000);
-
-  const images = [
-    "https://images.unsplash.com/photo-1529634891907-1fda9a43aab3",
-    "https://images.unsplash.com/photo-1519741497674-611481863552",
-    "https://images.unsplash.com/photo-1520854221256-17451cc331bf"
-  ];
-
-  let index = 0;
-  const slide = document.getElementById("slide");
-
-  setInterval(() => {
-    index = (index + 1) % images.length;
-    slide.style.opacity = 0;
-
-    setTimeout(() => {
-      slide.src = images[index];
-      slide.style.opacity = 1;
-    }, 500);
-  }, 3000);
 </script>
 
 </body>
 </html>
-
