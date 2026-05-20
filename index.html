@@ -1,191 +1,361 @@
 <!DOCTYPE html>
 <html lang="hy">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Հարսանյաց հրավիրատոմս</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #ffe6f0, #fff5e6);
-      color: #333;
-      text-align: center;
-    }
+<title>Հարսանյաց հրավիրատոմս</title>
 
-    /* COVER */
-    .cover {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100vh;
-      background: url('https://images.unsplash.com/photo-1529634891907-1fda9a43aab3') center/cover no-repeat;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      z-index: 999;
-    }
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-    .cover::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.5);
-    }
+body{
+    font-family: Arial, sans-serif;
+    background:#fff5f8;
+    overflow-x:hidden;
+}
 
-    .cover-content {
-      position: relative;
-      z-index: 2;
-    }
+/* COVER */
 
-    .cover h1 {
-      font-size: 50px;
-      margin-bottom: 10px;
-    }
+.cover{
+    width:100%;
+    height:100vh;
+    background:url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1400') center/cover no-repeat;
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
 
-    .cover button {
-      margin-top: 20px;
-      padding: 12px 25px;
-      font-size: 18px;
-      border: none;
-      border-radius: 30px;
-      cursor: pointer;
-      background: #c2185b;
-      color: white;
-    }
+.overlay{
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.45);
+}
 
-    /* MAIN */
-    .container {
-      display: none;
-      padding: 40px 20px;
-    }
+.cover-content{
+    position:relative;
+    z-index:2;
+    color:white;
+    padding:20px;
+}
 
-    h1 {
-      font-size: 40px;
-      color: #c2185b;
-      margin-bottom: 10px;
-    }
+.cover-content h1{
+    font-size:55px;
+    margin-bottom:15px;
+}
 
-    h2 {
-      font-size: 24px;
-      font-weight: normal;
-      margin-bottom: 20px;
-    }
+.cover-content p{
+    font-size:22px;
+    margin-bottom:30px;
+}
 
-    .countdown {
-      font-size: 28px;
-      margin: 20px 0;
-      padding: 15px;
-      background: rgba(255,255,255,0.7);
-      border-radius: 15px;
-      display: inline-block;
-    }
+.open-btn{
+    padding:15px 35px;
+    border:none;
+    border-radius:40px;
+    background:#e91e63;
+    color:white;
+    font-size:20px;
+    cursor:pointer;
+    transition:0.3s;
+}
 
-    .section {
-      margin-top: 30px;
-      background: rgba(255,255,255,0.85);
-      padding: 25px;
-      border-radius: 20px;
-      max-width: 900px;
-      margin-left: auto;
-      margin-right: auto;
-      text-align: left;
-    }
+.open-btn:hover{
+    transform:scale(1.05);
+    background:#c2185b;
+}
 
-    .section h3 {
-      text-align: center;
-      color: #6a1b9a;
-      margin-bottom: 20px;
-    }
+/* MAIN */
 
-    .agenda-item {
-      margin-bottom: 25px;
-      padding-bottom: 20px;
-      border-bottom: 1px solid #eee;
-    }
+.main{
+    display:none;
+    padding:40px 20px;
+}
 
-    .agenda-item img {
-      width: 100%;
-      max-height: 250px;
-      object-fit: cover;
-      border-radius: 15px;
-      margin-bottom: 10px;
-    }
+.title{
+    text-align:center;
+    color:#c2185b;
+    margin-bottom:40px;
+}
 
-    .time {
-      font-weight: bold;
-      color: #c2185b;
-    }
+.title h2{
+    font-size:42px;
+    margin-bottom:10px;
+}
 
-    .title {
-      font-weight: bold;
-      font-size: 18px;
-    }
+.timeline{
+    max-width:900px;
+    margin:auto;
+}
 
-    .desc {
-      margin-top: 5px;
-      line-height: 1.5;
-    }
-  </style>
+.card{
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+    margin-bottom:30px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.12);
+}
+
+.card img{
+    width:100%;
+    height:260px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:20px;
+}
+
+.time{
+    color:#e91e63;
+    font-size:22px;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.card-content h3{
+    margin-bottom:10px;
+    color:#444;
+}
+
+.card-content p{
+    color:#666;
+    line-height:1.6;
+}
+
+.footer{
+    text-align:center;
+    margin-top:50px;
+    font-size:24px;
+    color:#c2185b;
+}
+</style>
 </head>
 
 <body>
 
-<!-- COVER PAGE -->
+<!-- COVER -->
+
 <div class="cover" id="cover">
-  <div class="cover-content">
-    <h1>💍 Հարսանիք 💍</h1>
-    <p>Սիրով հրավիրում ենք մեր կյանքի ամենագեղեցիկ օրվան</p>
-    <button onclick="openInvite()">Բացել հրավիրատոմսը</button>
-  </div>
+
+    <div class="overlay"></div>
+
+    <div class="cover-content">
+        <h1>💍 Հարսանիք 💍</h1>
+
+        <p>
+            Սիրով հրավիրում ենք ձեզ մեր կյանքի
+            ամենագեղեցիկ օրվան
+        </p>
+
+        <button class="open-btn" onclick="openInvitation()">
+            Բացել հրավիրատոմսը
+        </button>
+    </div>
+
 </div>
 
 <!-- MAIN CONTENT -->
-<div class="container" id="main">
 
-  <h1>Հարսանիքի օրակարգ 💖</h1>
-  <h2>Սիրով սպասում ենք ձեզ</h2>
+<div class="main" id="main">
 
-  <div class="section">
-    <h3>💍 Օրակարգ</h3>
-
-    <div class="agenda-item">
-      <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf" />
-      <div class="time">14:00</div>
-      <div class="title">Հարսի պատրաստություն</div>
-      <div class="desc">Հարսի հագուստ, դիմահարդարում, նկարահանումներ։</div>
+    <div class="title">
+        <h2>💖 Հարսանիքի օրակարգ 💖</h2>
+        <p>Սիրով սպասում ենք ձեզ</p>
     </div>
 
-    <div class="agenda-item">
-      <img src="https://images.unsplash.com/photo-1529634891907-1fda9a43aab3" />
-      <div class="time">15:00</div>
-      <div class="title">Փեսայի պատրաստություն</div>
-      <div class="desc">Փեսայի և ընկերների պատրաստություն, նախապատրաստական նկարներ։</div>
+    <div class="timeline">
+
+        <!-- ITEM -->
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=1200">
+
+            <div class="card-content">
+                <div class="time">14:00</div>
+
+                <h3>Հարսի պատրաստություն</h3>
+
+                <p>
+                    Հարսի հագուստ, դիմահարդարում,
+                    նկարահանումներ։
+                </p>
+            </div>
+        </div>
+
+        <!-- ITEM -->
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1529634891907-1fda9a43aab3?q=80&w=1200">
+
+            <div class="card-content">
+                <div class="time">15:00</div>
+
+                <h3>Փեսայի պատրաստություն</h3>
+
+                <p>
+                    Փեսայի և ընկերների պատրաստություն,
+                    նախապատրաստական նկարներ։
+                </p>
+            </div>
+        </div>
+
+        <!-- ITEM -->
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1507504031003-b417219a0fde?q=80&w=1200">
+
+            <div class="card-content">
+                <div class="time">16:00</div>
+
+                <h3>Հարսի դուրսբերում</h3>
+
+                <p>
+                    Ընտանեկան գեղեցիկ արարողություն,
+                    օրհնություն։
+                </p>
+            </div>
+        </div>
+
+        <!-- ITEM -->
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1523438097201-512ae7d59c3b?q=80&w=1200">
+
+            <div class="card-content">
+                <div class="time">17:00</div>
+
+                <h3>Պսակադրություն / եկեղեցի</h3>
+
+                <p>
+                    Սուրբ արարողություն և
+                    ամուսնության գրանցում։
+                </p>
+            </div>
+        </div>
+
+        <!-- ITEM -->
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=1200">
+
+            <div class="card-content">
+                <div class="time">18:30</div>
+
+                <h3>Ֆոտոսեսիա</h3>
+
+                <p>
+                    Ռոմանտիկ նկարահանումներ
+                    զույգի և ընտանիքի հետ։
+                </p>
+            </div>
+        </div>
+
+        <!-- ITEM -->
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1529516548873-9ce57c8f155d?q=80&w=1200">
+
+            <div class="card-content">
+                <div class="time">20:00</div>
+
+                <h3>Հարսանյաց խնջույք</h3>
+
+                <p>
+                    Երաժշտություն, պարեր,
+                    հյուրերի դիմավորում։
+                </p>
+            </div>
+        </div>
+
+        <!-- ITEM -->
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1200">
+
+            <div class="card-content">
+                <div class="time">21:00</div>
+
+                <h3>Առաջին պար 💃🕺</h3>
+
+                <p>
+                    Փեսա և հարսի հատուկ պար։
+                </p>
+            </div>
+        </div>
+
+        <!-- ITEM -->
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?q=80&w=1200">
+
+            <div class="card-content">
+                <div class="time">22:00</div>
+
+                <h3>Տորթի կտրում 🎂</h3>
+
+                <p>
+                    Հարսանյաց տորթի արարողություն։
+                </p>
+            </div>
+        </div>
+
+        <!-- ITEM -->
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1526045612212-70caf35c14df?q=80&w=1200">
+
+            <div class="card-content">
+                <div class="time">23:00</div>
+
+                <h3>Շնորհակալական խոսքեր</h3>
+
+                <p>
+                    Զույգի շնորհակալությունը հյուրերին։
+                </p>
+            </div>
+        </div>
+
+        <!-- ITEM -->
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=1200">
+
+            <div class="card-content">
+                <div class="time">00:00</div>
+
+                <h3>Եզրափակիչ պարեր 🎉</h3>
+
+                <p>
+                    Ուրախ երեկոյի գեղեցիկ ավարտ։
+                </p>
+            </div>
+        </div>
+
     </div>
 
-    <div class="agenda-item">
-      <img src="https://images.unsplash.com/photo-1507504031003-b417219a0fde" />
-      <div class="time">16:00</div>
-      <div class="title">Հարսի դուրսբերում</div>
-      <div class="desc">Ընտանեկան գեղեցիկ արարողություն, օրհնություն։</div>
+    <div class="footer">
+        💖 Սիրով սպասում ենք ձեզ 💖
     </div>
 
-    <div class="agenda-item">
-      <img src="https://images.unsplash.com/photo-1523438097201-512ae7d59c3b" />
-      <div class="time">17:00</div>
-      <div class="title">Պսակադրություն</div>
-      <div class="desc">Սուրբ արարողություն և ամուսնության գրանցում։</div>
-    </div>
+</div>
 
-    <div class="agenda-item">
-      <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486" />
-      <div class="time">18:30</div>
-      <div class="title">Ֆոտոսեսիա</div>
-      <div class="desc">Ռոմանտիկ նկարահանումներ զույգի
+<script>
+
+function openInvitation(){
+
+    document.getElementById("cover").style.display = "none";
+
+    document.getElementById("main").style.display = "block";
+}
+
+</script>
+
+</body>
+</html>
