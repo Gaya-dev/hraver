@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Հարսանյաց հրավիրատոմս</title>
+
   <style>
     body {
       margin: 0;
@@ -13,7 +14,56 @@
       text-align: center;
     }
 
+    /* COVER */
+    .cover {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: url('https://images.unsplash.com/photo-1529634891907-1fda9a43aab3') center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      z-index: 999;
+    }
+
+    .cover::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+    }
+
+    .cover-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .cover h1 {
+      font-size: 50px;
+      margin-bottom: 10px;
+    }
+
+    .cover button {
+      margin-top: 20px;
+      padding: 12px 25px;
+      font-size: 18px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      background: #c2185b;
+      color: white;
+    }
+
+    /* MAIN */
     .container {
+      display: none;
       padding: 40px 20px;
     }
 
@@ -40,7 +90,7 @@
 
     .section {
       margin-top: 30px;
-      background: rgba(255,255,255,0.8);
+      background: rgba(255,255,255,0.85);
       padding: 25px;
       border-radius: 20px;
       max-width: 900px;
@@ -67,46 +117,44 @@
       object-fit: cover;
       border-radius: 15px;
       margin-bottom: 10px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     }
 
     .time {
       font-weight: bold;
       color: #c2185b;
-      font-size: 18px;
     }
 
     .title {
       font-weight: bold;
       font-size: 18px;
-      margin-top: 5px;
     }
 
     .desc {
       margin-top: 5px;
       line-height: 1.5;
     }
-
-    .gallery img {
-      width: 80%;
-      max-width: 500px;
-      height: 300px;
-      object-fit: cover;
-      border-radius: 20px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-    }
   </style>
 </head>
+
 <body>
 
-<div class="container">
-  <h1>Հարսանիք 💍</h1>
-  <h2>Սիրով հրավիրում ենք մեր հարսանիքին ❤️</h2>
+<!-- COVER PAGE -->
+<div class="cover" id="cover">
+  <div class="cover-content">
+    <h1>💍 Հարսանիք 💍</h1>
+    <p>Սիրով հրավիրում ենք մեր կյանքի ամենագեղեցիկ օրվան</p>
+    <button onclick="openInvite()">Բացել հրավիրատոմսը</button>
+  </div>
+</div>
 
-  <div class="countdown" id="countdown"></div>
+<!-- MAIN CONTENT -->
+<div class="container" id="main">
+
+  <h1>Հարսանիքի օրակարգ 💖</h1>
+  <h2>Սիրով սպասում ենք ձեզ</h2>
 
   <div class="section">
-    <h3>💍 Հարսանիքի օրակարգ</h3>
+    <h3>💍 Օրակարգ</h3>
 
     <div class="agenda-item">
       <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf" />
@@ -125,14 +173,14 @@
     <div class="agenda-item">
       <img src="https://images.unsplash.com/photo-1507504031003-b417219a0fde" />
       <div class="time">16:00</div>
-      <div class="title">Հարսի դուրսբերում (տունից)</div>
+      <div class="title">Հարսի դուրսբերում</div>
       <div class="desc">Ընտանեկան գեղեցիկ արարողություն, օրհնություն։</div>
     </div>
 
     <div class="agenda-item">
       <img src="https://images.unsplash.com/photo-1523438097201-512ae7d59c3b" />
       <div class="time">17:00</div>
-      <div class="title">Պսակադրություն / եկեղեցի</div>
+      <div class="title">Պսակադրություն</div>
       <div class="desc">Սուրբ արարողություն և ամուսնության գրանցում։</div>
     </div>
 
@@ -140,68 +188,4 @@
       <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486" />
       <div class="time">18:30</div>
       <div class="title">Ֆոտոսեսիա</div>
-      <div class="desc">Ռոմանտիկ նկարահանումներ զույգի և ընտանիքի հետ։</div>
-    </div>
-
-    <div class="agenda-item">
-      <img src="https://images.unsplash.com/photo-1529516548873-9ce57c8f155d" />
-      <div class="time">20:00</div>
-      <div class="title">Հարսանյաց խնջույք (բանկետ)</div>
-      <div class="desc">Երաժշտություն, պարեր, հյուրերի դիմավորում։</div>
-    </div>
-
-    <div class="agenda-item">
-      <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc" />
-      <div class="time">21:00</div>
-      <div class="title">Առաջին պար 💃🕺</div>
-      <div class="desc">Փեսա և հարսի հատուկ պար։</div>
-    </div>
-
-    <div class="agenda-item">
-      <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf" />
-      <div class="time">22:00</div>
-      <div class="title">Տորթի կտրում 🎂</div>
-      <div class="desc">Հարսանյաց տորթի արարողություն։</div>
-    </div>
-
-    <div class="agenda-item">
-      <img src="https://images.unsplash.com/photo-1526045612212-70caf35c14df" />
-      <div class="time">23:00</div>
-      <div class="title">Շնորհակալական խոսքեր</div>
-      <div class="desc">Զույգի շնորհակալությունը հյուրերին։</div>
-    </div>
-
-    <div class="agenda-item">
-      <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed" />
-      <div class="time">00:00</div>
-      <div class="title">Եզրափակիչ պարեր և ուրախություն 🎉</div>
-      <div class="desc">Երեկոյի ավարտը լի ուրախությամբ։</div>
-    </div>
-
-  </div>
-
-</div>
-
-<script>
-  const weddingDate = new Date("2026-09-10T16:00:00").getTime();
-  const countdownEl = document.getElementById("countdown");
-
-  setInterval(() => {
-    const now = new Date().getTime();
-    const diff = weddingDate - now;
-
-    if (diff <= 0) {
-      countdownEl.innerHTML = "🎉 Հարսանիքի օրը եկել է! 🎉";
-      return;
-    }
-
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-
-    countdownEl.innerHTML = `Մնացել է՝ ${days} օր, ${hours} ժամ, ${minutes} րոպե`;
-  }, 1000);
-</script>
-
-</body>
-</html>
+      <div class="desc">Ռոմանտիկ նկարահանումներ զույգի
