@@ -1,1 +1,131 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Հարսանյաց հրավիրատոմս</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #ffe6f0, #fff5e6);
+      color: #333;
+      text-align: center;
+    }
+
+    .container {
+      padding: 40px 20px;
+    }
+
+    h1 {
+      font-size: 40px;
+      color: #c2185b;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 24px;
+      font-weight: normal;
+      margin-bottom: 20px;
+    }
+
+    .countdown {
+      font-size: 28px;
+      margin: 20px 0;
+      padding: 15px;
+      background: rgba(255,255,255,0.7);
+      border-radius: 15px;
+      display: inline-block;
+    }
+
+    .gallery {
+      margin-top: 30px;
+    }
+
+    .gallery img {
+      width: 80%;
+      max-width: 500px;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      transition: opacity 1s ease-in-out;
+    }
+
+    .info {
+      margin-top: 20px;
+      font-size: 20px;
+      line-height: 1.6;
+    }
+
+    .label {
+      font-weight: bold;
+      color: #6a1b9a;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Հարսանիք</h1>
+  <h2>Սիրով հրավիրում ենք մեր հարսանիքին ❤️</h2>
+
+  <div class="countdown" id="countdown"></div>
+
+  <div class="info">
+    <p><span class="label">Ամսաթիվ:</span> 2026-09-10</p>
+    <p><span class="label">Ժամ:</span> 16:00</p>
+    <p><span class="label">Հասցե:</span> (ավելացնել հասցեն)</p>
+  </div>
+
+  <div class="gallery">
+    <img id="slide" src="https://images.unsplash.com/photo-1529634891907-1fda9a43aab3" alt="wedding" />
+  </div>
+</div>
+
+<script>
+  // === COUNTDOWN ===
+  const weddingDate = new Date("2026-09-10T16:00:00").getTime();
+
+  const countdownEl = document.getElementById("countdown");
+
+  setInterval(() => {
+    const now = new Date().getTime();
+    const diff = weddingDate - now;
+
+    if (diff <= 0) {
+      countdownEl.innerHTML = "🎉 Հարսանիքի օրը եկել է! 🎉";
+      return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+
+    countdownEl.innerHTML = `Մնացել է՝ ${days} օր, ${hours} ժամ, ${minutes} րոպե`;
+  }, 1000);
+
+  // === IMAGE SLIDER ===
+  const images = [
+    "https://images.unsplash.com/photo-1529634891907-1fda9a43aab3",
+    "https://images.unsplash.com/photo-1519741497674-611481863552",
+    "https://images.unsplash.com/photo-1520854221256-17451cc331bf"
+  ];
+
+  let index = 0;
+  const slide = document.getElementById("slide");
+
+  setInterval(() => {
+    index = (index + 1) % images.length;
+    slide.style.opacity = 0;
+
+    setTimeout(() => {
+      slide.src = images[index];
+      slide.style.opacity = 1;
+    }, 500);
+  }, 3000);
+</script>
+
+</body>
+</html>
 
