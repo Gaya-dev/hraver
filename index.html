@@ -38,6 +38,32 @@
       display: inline-block;
     }
 
+    .section {
+      margin-top: 30px;
+      background: rgba(255,255,255,0.75);
+      padding: 20px;
+      border-radius: 20px;
+      display: inline-block;
+      max-width: 800px;
+      text-align: left;
+    }
+
+    .section h3 {
+      text-align: center;
+      color: #6a1b9a;
+      margin-bottom: 15px;
+    }
+
+    .agenda-item {
+      margin-bottom: 15px;
+      line-height: 1.5;
+    }
+
+    .time {
+      font-weight: bold;
+      color: #c2185b;
+    }
+
     .gallery {
       margin-top: 30px;
     }
@@ -78,15 +104,37 @@
     <p><span class="label">Հասցե:</span> (ավելացնել հասցեն)</p>
   </div>
 
+  <div class="section">
+    <h3>💍 Հարսանիքի օրակարգ</h3>
+
+    <div class="agenda-item"><span class="time">14:00</span> – Հարսի պատրաստություն<br/>Հարսի հագուստ, դիմահարդարում, նկարահանումներ։</div>
+
+    <div class="agenda-item"><span class="time">15:00</span> – Փեսայի պատրաստություն<br/>Փեսայի և ընկերների պատրաստություն, նախապատրաստական նկարներ։</div>
+
+    <div class="agenda-item"><span class="time">16:00</span> – Հարսի դուրսբերում (տունից)<br/>Ընտանեկան գեղեցիկ արարողություն, օրհնություն։</div>
+
+    <div class="agenda-item"><span class="time">17:00</span> – Պսակադրություն / եկեղեցի<br/>Սուրբ արարողություն և ամուսնության գրանցում։</div>
+
+    <div class="agenda-item"><span class="time">18:30</span> – Ֆոտոսեսիա<br/>Ռոմանտիկ նկարահանումներ զույգի և ընտանիքի հետ։</div>
+
+    <div class="agenda-item"><span class="time">20:00</span> – Հարսանյաց խնջույք (բանկետ)<br/>Երաժշտություն, պարեր, հյուրերի դիմավորում։</div>
+
+    <div class="agenda-item"><span class="time">21:00</span> – Առաջին պար 💃🕺<br/>Փեսա և հարսի հատուկ պար։</div>
+
+    <div class="agenda-item"><span class="time">22:00</span> – Տորթի կտրում 🎂<br/>Հարսանյաց տորթի արարողություն։</div>
+
+    <div class="agenda-item"><span class="time">23:00</span> – Շնորհակալական խոսքեր<br/>Զույգի շնորհակալությունը հյուրերին։</div>
+
+    <div class="agenda-item"><span class="time">00:00</span> – Եզրափակիչ պարեր և ուրախություն 🎉</div>
+  </div>
+
   <div class="gallery">
     <img id="slide" src="https://images.unsplash.com/photo-1529634891907-1fda9a43aab3" alt="wedding" />
   </div>
 </div>
 
 <script>
-  // === COUNTDOWN ===
   const weddingDate = new Date("2026-09-10T16:00:00").getTime();
-
   const countdownEl = document.getElementById("countdown");
 
   setInterval(() => {
@@ -105,7 +153,6 @@
     countdownEl.innerHTML = `Մնացել է՝ ${days} օր, ${hours} ժամ, ${minutes} րոպե`;
   }, 1000);
 
-  // === IMAGE SLIDER ===
   const images = [
     "https://images.unsplash.com/photo-1529634891907-1fda9a43aab3",
     "https://images.unsplash.com/photo-1519741497674-611481863552",
